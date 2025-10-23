@@ -8,6 +8,7 @@ import { BASE_URL } from "../utils/constants";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -24,19 +25,26 @@ const Login = () => {
       dispatch(addUser(res.data.data));
       navigate("/");
     } catch (err) {
-      console.log(err);
+      setError(err.response.data);
+      // console.log("Err", err.response.data);
     }
   };
 
   return (
     <div>
+      {/* Error Msg */}
+      {error && (
+        <div role="alert" className="alert alert-error alert-soft">
+          <span>{error}</span>
+        </div>
+      )}
       <div className="card card-border bg-base-300 w-96 my-10 justify-self-center-safe">
         <div className="card-body">
           <h2 className="card-title justify-center">Login</h2>
           <fieldset className="fieldset">
             <legend className="fieldset-legend">Email</legend>
             <input
-              type="text"
+              type="email"
               className="input"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
