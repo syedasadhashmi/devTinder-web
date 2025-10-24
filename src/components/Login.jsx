@@ -13,6 +13,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleLogin = async () => {
+    setError("");
     try {
       const res = await axios.post(
         BASE_URL + "/login",
@@ -26,6 +27,7 @@ const Login = () => {
       navigate("/");
     } catch (err) {
       setError(err.response.data);
+
       // console.log("Err", err.response.data);
     }
   };

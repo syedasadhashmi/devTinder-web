@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router";
 import { BASE_URL } from "../utils/constants";
 import { deleteUser } from "../utils/userSlice";
+import { deleteFeed } from "../utils/feedSlice";
 
 const Navbar = () => {
   const user = useSelector((store) => store.user);
@@ -20,6 +21,7 @@ const Navbar = () => {
         }
       );
       dispatch(deleteUser());
+      dispatch(deleteFeed());
       navigate("/login");
     } catch (err) {
       // We should add error page to visit when ever recieved an error
@@ -46,8 +48,8 @@ const Navbar = () => {
                 <img
                   alt={user?.firstName + "image"}
                   src={
-                    user.photUrl
-                      ? user.photUrl
+                    user.photoUrl
+                      ? user.photoUrl
                       : "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
                   }
                 />

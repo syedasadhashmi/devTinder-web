@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { BASE_URL } from "../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { addFeed } from "../utils/feedSlice";
@@ -8,6 +8,7 @@ import FeedCard from "./FeedCard";
 const Feed = () => {
   const feed = useSelector((store) => store.feed);
   const dispatch = useDispatch();
+  // const { firstName, lastName, gender, age, about, photoUrl } = feed;
 
   const fetchFeed = async () => {
     try {
@@ -29,7 +30,7 @@ const Feed = () => {
   return (
     feed && (
       <div>
-        <FeedCard feedData={feed[0]} />
+        <FeedCard user={feed[0]} />
       </div>
     )
   );
