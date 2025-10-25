@@ -5,6 +5,8 @@ import { Link, useNavigate } from "react-router";
 import { BASE_URL } from "../utils/constants";
 import { deleteUser } from "../utils/userSlice";
 import { deleteFeed } from "../utils/feedSlice";
+import { deleteConnections } from "../utils/connectionSlice";
+import { deleteRequests } from "../utils/requestSlice";
 
 const Navbar = () => {
   const user = useSelector((store) => store.user);
@@ -22,6 +24,8 @@ const Navbar = () => {
       );
       dispatch(deleteUser());
       dispatch(deleteFeed());
+      dispatch(deleteConnections());
+      dispatch(deleteRequests());
       navigate("/login");
     } catch (err) {
       // We should add error page to visit when ever recieved an error
@@ -66,7 +70,10 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <a>Settings</a>
+                <Link to={"/connections"}>Connections</Link>
+              </li>
+              <li>
+                <Link to={"/requests"}>Requests</Link>
               </li>
               <li>
                 <a onClick={logoutHandler}>Logout</a>
