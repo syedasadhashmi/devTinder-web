@@ -8,10 +8,10 @@ import { addUser } from "../utils/userSlice";
 const EditProfile = ({ user }) => {
   const [firstName, setFirstName] = useState(user?.firstName);
   const [lastName, setLastName] = useState(user?.lastName);
-  const [gender, setGender] = useState(user?.gender);
-  const [about, setAbout] = useState(user?.about);
+  const [gender, setGender] = useState(user?.gender || "");
+  const [about, setAbout] = useState(user?.about || "");
   const [photoUrl, setPhotoUrl] = useState(user?.photoUrl);
-  const [age, setAge] = useState(user?.age);
+  const [age, setAge] = useState(user?.age || "");
   const [error, setError] = useState("");
   const [isUserUpdate, setIsUserUpdate] = useState(false);
 
@@ -78,9 +78,14 @@ const EditProfile = ({ user }) => {
               <legend className="fieldset-legend">Gender</legend>
               <select
                 defaultValue="Select Gender"
+                // value={gender}
+                // defaultValue={gender}
                 className="select"
                 onChange={(e) => setGender(e.target.value)}
               >
+                <option value="" disabled>
+                  Select Gender
+                </option>
                 <option value={"male"}>male</option>
                 <option value={"female"}>female</option>
                 <option value={"others"}>others</option>
@@ -107,6 +112,8 @@ const EditProfile = ({ user }) => {
             <fieldset className="fieldset">
               <legend className="fieldset-legend">About</legend>
               <textarea
+                // defaultValue={"Default Text"}
+                value={about}
                 className="textarea"
                 onChange={(e) => setAbout(e.target.value)}
               >

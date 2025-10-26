@@ -27,6 +27,11 @@ const Feed = () => {
     }
   }, []);
 
+  if (!feed) return;
+  if (feed.length <= 0) {
+    return <h1 className="text-center my-10">No User Found!</h1>;
+  }
+
   return (
     feed && (
       <div>
