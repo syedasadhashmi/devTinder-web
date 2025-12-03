@@ -16,8 +16,8 @@ const PrivacyPolicy = () => {
         This Privacy Policy (“Policy”) describes how{" "}
         <strong>syedasadhashmi.online</strong>
         (“Platform”, “We”, “Us”) collects, uses, maintains, and discloses the
-        information of users (“Learners”, “You”, “Your”). By using this
-        Platform, You agree to the practices outlined below.
+        information of users (“Friend”, “You”, “Your”). By using this Platform,
+        You agree to the practices outlined below.
       </p>
 
       <h2>1. Personal Information</h2>
@@ -52,7 +52,7 @@ const PrivacyPolicy = () => {
       <h2>3. How We Use & Share Your Information</h2>
       <ul>
         <li>To provide access to the platform</li>
-        <li>To improve learning experience and security</li>
+        <li>To improve Friend making experience and security</li>
         <li>To detect fraud and prevent misuse</li>
         <li>To communicate new features, updates, and offers</li>
       </ul>
